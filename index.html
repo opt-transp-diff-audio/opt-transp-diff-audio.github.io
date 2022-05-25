@@ -1,0 +1,247 @@
+<html>
+    <!-- HEADER -->
+    <head>
+        <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+
+        <title>Demo page of "Optimal Transport in Diffusion Modeling for Conversion Tasks in Audio Domain" (NeurIPS 2022 review)</title>
+        <link rel="icon" href="resources/img/icon.png">
+
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/text.css">
+        <link rel="stylesheet" href="css/media.css">
+        <link rel="stylesheet" href="css/select.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100&display=swap" rel="stylesheet">
+    </head>
+
+    <!-- MAIN BODY -->
+    <body>
+        <div class="main">
+            <!-- HEADER -->
+            <br>
+            <h1 class="wrapper">Optimal Transport in Diffusion Modeling for Conversion Tasks in Audio Domain</h1>
+            <p class="wrapper">Under review as a conference paper at NeurIPS 2022, <a href="">pdf</a> (code will be made publicly available shortly)</p>
+
+            <!-- ABSTRACT -->
+            <br><br>
+            <h2 class="wrapper">Abstract</h2>
+            <p class="wrapper">Diffusion probabilistic models have recently become a popular generative modeling framework because of their high quality in various domains including visual and audio ones. Lately, it has been hypothesized that optimally trained diffusion models supplied with specific differential equation solvers provide solution to the optimal transport problem between the data distribution and the prior distribution of the diffusion model. In this paper, we empirically show that the optimal transport point of view on diffusion modeling allows to make a good choice of a noise sample the reverse diffusion starts generating from. We consider two audio-related tasks: voice conversion and timbre transfer. In the former we improve upon the recent state-of-the-art model and demonstrate that the optimal transport helps us to keep prosody of the source utterances significantly better than when the vanilla diffusion-based model is used. As for timbre transfer, we propose the novel diffusion probabilistic model capable of many-to-many timbre transfer performing on par with common algorithms in terms of the overall music quality.</p>
+            
+            <!-- 1 VOICE CONVERSION -->
+            <br><br>
+            <h2 class="wrapper">1 Voice Conversion</h2>
+            <p class="wrapper">In this section we provide a subset of audio samples used in VC task evaluation. We compare baselines with our diffusion-based <i style="font-weight: 700;">DiffVC</i> model with <i style="font-weight: 700;">Random noise</i> and <i style="font-weight: 700;">Optimal transport noise</i>.</p>
+            <div class="wrapper" style="text-align: center;">
+                <span class="choose">Choose a test sentence:</span>
+                    <div class="dropdown">
+                    <div class="select">
+                        <span>Select pair</span>
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="gender">
+                    <ul class="dropdown-menu">
+                        <li id="assets/voice_conversion/sent1">Pair 1</li>
+                        <li id="assets/voice_conversion/sent2">Pair 2</li>
+                        <li id="assets/voice_conversion/sent3">Pair 3</li>
+                        <li id="assets/voice_conversion/sent4">Pair 4</li>
+                        <li id="assets/voice_conversion/sent5">Pair 5</li>
+                    </ul>
+                    </div>
+            </div>
+            <script language="JavaScript" type="text/javascript" src="js/select.js"></script>
+
+            <div class="vcpair">
+                <table class="wrapper">
+                    <tbody style="margin-right: auto; text-align: center;">
+                        <tr>
+                            <td></td>
+                            <td><b>Source</b></td>
+                            <td><b>Target</b></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><a href="https://github.com/Wendison/VQMIVC">VQMIVC</a></td>
+                            <td><a href="https://github.com/liusongxiang/ppg-vc">BNE-PPG-VC</a></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: medium; text-align: right;"><i style="font-weight: 700;">Baselines</i>:</td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Random noise</td>
+                            <td>Optimal transport noise</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: medium; text-align: right;"><i style="font-weight: 700;">DiffVC (ours)</i>:</td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td><audio controls=""><source src=""></audio></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- TIMBRE TRANSFER -->
+            <br><br>
+            <h2 class="wrapper">2 Timbre transfer</h2>
+            <p class="wrapper">Ablation of different timbre transfer algorithms:</p>
+            <div>
+                <table class="wrapper">
+                    <tbody style="margin-right: auto; text-align: center;">
+                        <tr>
+                            <td></td>
+                            <td><b>Source</b></td>
+                            <td>Random</td>
+                            <td>Random-GG</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Example 1</td>
+                            <td><audio controls=""><source src="assets/music/ablation/source1.wav"></audio></td>
+                            <td><audio controls=""><source src="assets/music/ablation/random1.wav"></audio></td>
+                            <td><audio controls=""><source src="assets/music/ablation/random-gg1.wav"></audio></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>OT</td>
+                            <td>OT-GG</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><audio controls=""><source src="assets/music/ablation/ot1.wav"></audio></td>
+                            <td><audio controls=""><source src="assets/music/ablation/ot-gg1.wav"></audio></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><b>Source</b></td>
+                            <td>Random</td>
+                            <td>Random-GG</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Example 2</td>
+                            <td><audio controls=""><source src="assets/music/ablation/source2.wav"></audio></td>
+                            <td><audio controls=""><source src="assets/music/ablation/random2.wav"></audio></td>
+                            <td><audio controls=""><source src="assets/music/ablation/random-gg2.wav"></audio></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>OT</td>
+                            <td>OT-GG</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><audio controls=""><source src="assets/music/ablation/ot2.wav"></audio></td>
+                            <td><audio controls=""><source src="assets/music/ablation/ot-gg2.wav"></audio></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <p class="wrapper">Next, we provide a subset of music samples used in timbre transfer evaluation with violin, flute, piano and harpsochord as target instruments. We compare our diffusion-based optimal transport solution <i style="font-weight: 700;">Diff-OT-GG</i> against <i style="font-weight: 700;">Timretron</i>.</p>
+            <div>
+                <table class="wrapper">
+                    <tbody style="margin-right: auto; text-align: center;">
+                        <tr>
+                            <td><b>Source</b></td>
+                            <td></td>
+                            <td></td>
+                            <td>Diff-OT-GG (Ours)</td>
+                            <td>Timbretron</td>
+                        </tr>
+                        <tr>
+                            <td><audio controls=""><source src="assets/music/target_violin/source.wav"></audio></td>
+                            <td></td>
+                            <td>To violin:</td>
+                            <td><audio controls=""><source src="assets/music/target_violin/ours.wav"></audio></td>
+                            <td><audio controls=""><source src="assets/music/target_violin/timbretron.wav"></audio></td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
+                        <tr>
+                            <td><audio controls=""><source src="assets/music/target_flute/source.wav"></audio></td>
+                            <td></td>
+                            <td>To flute:</td>
+                            <td><audio controls=""><source src="assets/music/target_flute/ours.wav"></audio></td>
+                            <td><audio controls=""><source src="assets/music/target_flute/timbretron.wav"></audio></td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
+                        <tr>
+                            <td><audio controls=""><source src="assets/music/target_piano/source.wav"></audio></td>
+                            <td></td>
+                            <td>To piano:</td>
+                            <td><audio controls=""><source src="assets/music/target_piano/ours.wav"></audio></td>
+                            <td><audio controls=""><source src="assets/music/target_piano/timbretron.wav"></audio></td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
+                        <tr>
+                            <td><audio controls=""><source src="assets/music/target_harpsichord/source.wav"></audio></td>
+                            <td></td>
+                            <td>To harpsichord:</td>
+                            <td><audio controls=""><source src="assets/music/target_harpsichord/ours.wav"></audio></td>
+                            <td><audio controls=""><source src="assets/music/target_harpsichord/timbretron.wav"></audio></td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+
+            <br><br><br>
+            <p class="wrapper" style="text-align: center; font-weight: 300;">May 2022</p>
+            <br><br><br>
+        </div>
+        
+    </body>
+</html>

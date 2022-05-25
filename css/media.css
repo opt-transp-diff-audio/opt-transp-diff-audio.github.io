@@ -1,0 +1,44 @@
+audio {
+    margin: auto;
+    width: 230px;
+    min-width: 50px;
+    display: flex;
+}
+
+source {
+    margin: auto;
+    width: 80%;
+    min-width: 100px;
+}
+
+figure {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    padding: 30px 0% 2px 0%;
+    border-left: 0px solid #999;
+    border-right: 0px solid #999;
+    border-bottom: 0px dashed #999;
+    display: table;
+    outline: 0px solid black;
+}
+  
+figcaption {
+    display: table-caption;
+    caption-side: top;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    font-size: small;
+}
+
+.vcpair {
+    max-width: 850px;
+    margin: auto;
+    padding: 30px 0% 2px 0%;
+    border-left: 0px solid #999;
+    border-right: 0px solid #999;
+    border-bottom: 0px dashed #999;
+}

@@ -1,0 +1,12 @@
+h1 {
+    font-weight: 300;
+    text-align: left;
+    border-top: 30px;
+    border-bottom: 3px;
+}
+
+h2 {
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 3px;
+}

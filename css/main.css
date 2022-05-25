@@ -1,0 +1,26 @@
+body {
+    font-family: 'Roboto';
+    margin: 0;
+    background-color: rgb(241, 241, 241);
+    min-height: 100%;
+}
+
+.main {
+    max-width: 1150px;
+    margin: auto;
+    padding: 0% 2% 0% 2%;
+    border-left: 0px solid white;
+    border-right: 0px solid white;
+    border-bottom: 0px dashed white;
+    background-color: white;
+    position: relative;
+}
+
+.wrapper {
+    max-width: 850px;
+    margin: auto;
+    padding: 30px 0% 2px 0%;
+    border-left: 0px solid #999;
+    border-right: 0px solid #999;
+    border-bottom: 0px dashed #999;
+}
